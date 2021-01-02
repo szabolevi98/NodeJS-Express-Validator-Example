@@ -1,0 +1,16 @@
+
+<form action="/register" method="post">
+    <p>Felhasználónév</p>
+    <input type="text" name="username" maxlength="25" value="<% if (locals.formData) { %><%= formData.username %><% } %>" required />
+
+    <p>Jelszó</p>
+    <input type="password" name="password" maxlength="25" value="<% if (locals.formData) { %><%= formData.password %><% } %>" required />
+    
+    <p>Jelszó újra</p>
+    <input type="password" name="password_confirm" maxlength="25" value="<% if (locals.formData) { %><%= formData.password_confirm %><% } %>" required />
+
+    <p>Email cím</p>
+    <input type="text" name="email" maxlength="25" value="<% if (locals.formData) { %><%= formData.email %><% } %>" required />
+    
+    <input type="submit" name="register" value="Regisztráció" required />
+</form>

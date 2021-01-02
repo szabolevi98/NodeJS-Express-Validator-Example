@@ -1,0 +1,80 @@
+body {
+	font-family: 'Arial';
+	font-weight: bold;
+	background: url('/images/bg.jpg') center fixed; 
+	background-size: cover;
+}
+
+#main {
+	background-color: rgba(20, 20, 20, 0.75);
+	width: 420px;
+	height: min-content;
+	margin: auto;
+	margin-top: 125px;
+	padding: 10px;
+	padding-top: 15px;
+	padding-bottom: 35px;
+	color: silver;
+	text-align: center;
+}
+
+.message {
+	background-color: rgba(20, 20, 20, 0.75);
+	height: min-content;
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+	color: silver;
+	font-size: 12px;
+	text-align: center;
+}
+
+input[type="text"], [type="password"] {
+	background-color: rgba(20, 20, 20, 0.75);
+	width: 359px;
+	height: 44px;
+	border: 0;
+	outline: 0;
+	padding-left: 8px;
+	padding-right: 8px;
+	color: silver;
+	text-indent: 5;
+	font-size: 15px;
+}
+
+input[type="submit"] {
+	background-color: rgba(20, 20, 20, 0.75);
+	color: silver;
+	font-size: 18px;
+	width: 238px;
+	height: 50px;
+	border: 0;
+	outline: 0;
+	cursor: pointer;
+	margin-top: 20px;
+}
+
+input[type="submit"]:hover {
+	background-color: rgb(20, 20, 20);
+}
+
+footer {
+	background-color: rgba(20, 20, 20, 0.75);
+	height: min-content;
+	position: fixed;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	color: silver;
+	font-size: 12px;
+	text-align: center;
+}
+
+footer a {
+	color: silver;
+}
+
+footer a:hover {
+	color: silver;
+}
