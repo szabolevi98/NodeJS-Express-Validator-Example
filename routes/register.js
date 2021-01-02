@@ -5,27 +5,28 @@ const path = require('path');
 const bcrypt = require('bcrypt');
 const userModel = require(path.join(__dirname, '..', 'models', 'user'));
 
+//Validations via express-validator
 const validationChecks = [
-    check('username', 'Add meg a felhasználónevet!')
+    check('username', 'A felhasználónév érvénytelen!')
         .notEmpty()
         .isLength({ min: 3 })
-        .withMessage("A felhasználónévnek legalább 3 karakternek kell lennie!")
+        .withMessage('A felhasználónévnek legalább 3 karakternek kell lennie!')
         .isLength({ max: 25 })
-        .withMessage("A felhasználónév maximum 25 karakter lehet!")
+        .withMessage('A felhasználónév maximum 25 karakter lehet!')
         .custom((value) => {
-            return userModel.findOne({username: new RegExp('^'+value+'$', "i")})
+            return userModel.findOne({username: new RegExp('^'+value+'$', 'i')})
             .then(user => {
                 if (user) {
                   return Promise.reject('A felhasználónév foglalt!');
                 }
             });
         }),
-    check("password", "Add meg a jelszót!")
+    check('password', 'A jelszó érvénytelen!')
         .notEmpty()
         .isLength({ min: 8 })
-        .withMessage("A jelszónak legalább 8 karakternek kell lennie!")
+        .withMessage('A jelszónak legalább 8 karakternek kell lennie!')
         .isLength({ max: 25 })
-        .withMessage("A jelszó maximum 25 karakter lehet!")
+        .withMessage('A jelszó maximum 25 karakter lehet!')
         .custom((value, { req }) => {
             if (value !== req.body.password_confirm) {
                 throw new Error('A két jelszó nem egyezik meg!');
@@ -34,14 +35,14 @@ const validationChecks = [
                 return true
             }
         }),
-    check('email', 'Add meg az email címet!')
+    check('email', 'Az email cím érvénytelen!')
         .notEmpty()
         .isLength({ min: 5 })
-        .withMessage("Az email címnek legalább 5 karakternek kell lennie!")
+        .withMessage('Az email címnek legalább 5 karakternek kell lennie!')
         .isLength({ max: 25 })
-        .withMessage("A email címnek maximum 25 karakter lehet!")
+        .withMessage('A email címnek maximum 25 karakter lehet!')
         .isEmail()
-        .withMessage("Valós email címet adj meg!")
+        .withMessage('Valós email címet adj meg!')
         .normalizeEmail()
 ]
 
@@ -55,12 +56,11 @@ router.route('/')
         password_confirm: req.body.password_confirm,
         email: req.body.email
     };
-    const errors = validationResult(req)
+    const errors = validationResult(req);
     if(!errors.isEmpty()) {
-        const alertsArray = errors.array()
         res.render('register', {
             formData: userObject,
-            alerts: alertsArray
+            alerts: errors.array()
         })
     }
     else {

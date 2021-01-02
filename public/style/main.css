@@ -1,3 +1,9 @@
+:root {
+	--mainFontColor: silver;
+	--mainBodyColor: rgba(20, 20, 20, 0.75);
+	--mainBodyColorHover: rgb(20, 20, 20);
+}
+
 body {
 	font-family: 'Arial';
 	font-weight: bold;
@@ -6,46 +12,50 @@ body {
 }
 
 #main {
-	background-color: rgba(20, 20, 20, 0.75);
+	background-color: var(--mainBodyColor);
+	position: absolute;
 	width: 420px;
 	height: min-content;
+	top: -5%;
+	bottom: 0;
+	left: 0;
+	right: 0;
 	margin: auto;
-	margin-top: 125px;
 	padding: 10px;
 	padding-top: 15px;
 	padding-bottom: 35px;
-	color: silver;
+	color: var(--mainFontColor);
 	text-align: center;
 }
 
 .message {
-	background-color: rgba(20, 20, 20, 0.75);
+	background-color: var(--mainBodyColor);
 	height: min-content;
 	position: fixed;
 	top: 0;
 	left: 0;
 	right: 0;
-	color: silver;
+	color: var(--mainFontColor);
 	font-size: 12px;
 	text-align: center;
 }
 
 input[type="text"], [type="password"] {
-	background-color: rgba(20, 20, 20, 0.75);
+	background-color: var(--mainBodyColor);
 	width: 359px;
 	height: 44px;
 	border: 0;
 	outline: 0;
 	padding-left: 8px;
 	padding-right: 8px;
-	color: silver;
+	color: var(--mainFontColor);
 	text-indent: 5;
 	font-size: 15px;
 }
 
 input[type="submit"] {
-	background-color: rgba(20, 20, 20, 0.75);
-	color: silver;
+	background-color: var(--mainBodyColor);
+	color: var(--mainFontColor);
 	font-size: 18px;
 	width: 238px;
 	height: 50px;
@@ -56,25 +66,25 @@ input[type="submit"] {
 }
 
 input[type="submit"]:hover {
-	background-color: rgb(20, 20, 20);
+	background-color: var(--mainBodyColorHover);
 }
 
 footer {
-	background-color: rgba(20, 20, 20, 0.75);
+	background-color: var(--mainBodyColor);
 	height: min-content;
 	position: fixed;
 	bottom: 0;
 	left: 0;
 	right: 0;
-	color: silver;
+	color: var(--mainFontColor);
 	font-size: 12px;
 	text-align: center;
 }
 
 footer a {
-	color: silver;
+	color: var(--mainFontColor);
 }
 
 footer a:hover {
-	color: silver;
+	color: var(--mainFontColor);
 }

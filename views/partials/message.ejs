@@ -1,13 +1,13 @@
 <div class="message">
-    <% if (locals.success) { %>
+    <% if (locals.success) { -%>
         <p style="color:lime;">Regisztráció sikerült!</p>
-    <% } %>
-    <% if (locals.alerts) { %>
-        <% alerts.forEach((error) => { %>
+    <% } -%>
+    <% if (locals.alerts) { -%>
+        <% alerts.forEach((error) => { -%>
             <p style="color:red;"><%= error.msg %></p>
-        <% }) %>
-    <% } %>
-    <% if (locals.errorMessage) { %>
-        <p style="color:red;"><%= errorMessage %></p>
-    <% } %>
+        <% }) -%>
+    <% } -%>
+    <% if (locals.errorMessage) { -%>
+        <p style="color:red;"><%= errorMessage -%></p>
+    <% } -%>
 </div>
