@@ -1,7 +1,7 @@
 :root {
 	--mainFontColor: silver;
-	--mainBodyColor: rgba(20, 20, 20, 0.75);
-	--mainBodyColorHover: rgb(20, 20, 20);
+	--mainBodyColor: rgba(8, 37, 77, 0.75);
+	--mainBodyColorHover: rgb(6, 25, 51);
 }
 
 body {
