@@ -69,6 +69,15 @@ input[type="submit"]:hover {
 	background-color: var(--mainBodyColorHover);
 }
 
+label {
+	display: block;
+	padding: 16px;
+}
+
+.invalid {
+	border: 1px solid red !important;
+}
+
 footer {
 	background-color: var(--mainBodyColor);
 	height: min-content;

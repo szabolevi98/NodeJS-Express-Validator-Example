@@ -1,15 +1,35 @@
+<% let usernameError = false, passwordError = false, emailError = false; -%>
+<% if (locals.alerts) { -%>
+    <% alerts.forEach(function(alert) { -%>
+        <% if (alert.param == "username") { -%>
+            <% usernameError = true; -%>
+        <% } -%>
+        <% if (alert.param == "password") { -%>
+            <% passwordError = true; -%>
+        <% } -%>
+        <% if (alert.param == "email") { -%>
+            <% emailError = true; -%>
+        <% } -%>
+    <% }); -%>
+<% } -%>
 <form action="/register" method="post">
-    <p>Felhasználónév</p>
-    <input type="text" name="username" value="<% if (locals.formData) { %><%= formData.username %><% } %>" required />
-
-    <p>Jelszó</p>
-    <input type="password" name="password" value="<% if (locals.formData) { %><%= formData.password %><% } %>" required />
-    
-    <p>Jelszó újra</p>
-    <input type="password" name="password_confirm" value="<% if (locals.formData) { %><%= formData.password_confirm %><% } %>" required />
-
-    <p>Email cím</p>
-    <input type="text" name="email" value="<% if (locals.formData) { %><%= formData.email %><% } %>" required />
-    
-    <input type="submit" name="register" value="Regisztráció" required />
+    <div class="form-username">
+        <label for="username">Felhasználónév</label>
+        <input type="text" name="username" value="<% if (locals.formData) { %><%= formData.username %><% } %>"<% if (usernameError == true) { %>class="invalid"<% } %> required />
+    </div>
+    <div class="form-password">
+        <label for="password">Jelszó</label>
+        <input type="password" name="password" value="<% if (locals.formData) { %><%= formData.password %><% } %>"<% if (passwordError == true) { %>class="invalid"<% } %> required />
+    </div>
+    <div class="form-password_confirm">
+        <label for="password_confirm">Jelszó újra</label>
+        <input type="password" name="password_confirm" value="<% if (locals.formData) { %><%= formData.password_confirm %><% } %>"<% if (passwordError == true) { %>class="invalid"<% } %> required />
+    </div>
+    <div class="form-email">
+        <label for="email">Email cím</label>
+        <input type="text" name="email" value="<% if (locals.formData) { %><%= formData.email %><% } %>"<% if (emailError == true) { %>class="invalid"<% } %> required />
+    </div>
+    <div class="form-submit">
+        <input type="submit" name="register" value="Regisztráció" />
+    </div>
 </form>

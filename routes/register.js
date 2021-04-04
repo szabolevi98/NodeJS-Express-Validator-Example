@@ -23,8 +23,8 @@ const validationChecks = [
         }),
     check('password', 'A jelszó érvénytelen!')
         .notEmpty()
-        .isLength({ min: 8 })
-        .withMessage('A jelszónak legalább 8 karakternek kell lennie!')
+        .isLength({ min: 5 })
+        .withMessage('A jelszónak legalább 5 karakternek kell lennie!')
         .isLength({ max: 25 })
         .withMessage('A jelszó maximum 25 karakter lehet!')
         .custom((value, { req }) => {
@@ -61,7 +61,7 @@ router.route('/')
         res.render('register', {
             formData: userObject,
             alerts: errors.array()
-        })
+        });
     }
     else {
         try {
