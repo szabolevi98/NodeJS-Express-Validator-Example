@@ -1,5 +1,4 @@
 # NodeJS-Express-Validator-Example
-Live demo: https://nodejs-express-validator.herokuapp.com
 
 - `npm install` to install dependencies
 - `npm run dev` to start the app
